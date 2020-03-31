@@ -26,6 +26,7 @@
     "fs": "0.0.1-security",
     "opusscript": "0.0.7",
     "random-puppy": "^1.1.0",
+    "simple-youtube-api": "^5.2.1",
     "ytdl-core": "^2.0.1"
   }
 }
