@@ -30,6 +30,11 @@ cat.on('message', (message) => {
         message.channel.send("meow :3");
     }
 
+    // reply for smile
+    if(message.content === ":)"){
+        message.channel.send(":3");
+    }
+
     //prefix check
     const prefix = "!";
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
@@ -41,22 +46,6 @@ cat.on('message', (message) => {
     }
 
 });
-
-//command handler
-(async function commandHandler(dir = "commands") {
-    let files = await fs.readdir(path.join(__dirname, dir));
-    for(let file of files) {
-        let stat = await fs.lstat(path.join(__dirname, dir, file));
-        if(stat.isDirectory()) commandHandler(path.join(dir, file));
-        else {
-            if(file.endsWith(".js")) {
-                let cmd = file.substring(0, file.indexOf(".js"));
-                let cmdModule = require(path.join(__dirname, dir, file));
-                cat.commands.set(cmd, cmdModule);
-            }
-        }
-    }
-})()
 
 //bot login
 cat.login(process.env.TOKEN);

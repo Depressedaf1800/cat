@@ -1,2 +1,3 @@
 # cat
-cat bot
+## cat bot
+commands to add, smoke, sad memes..
