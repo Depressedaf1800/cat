@@ -2,6 +2,7 @@
 const discord = require("discord.js");
 const fs = require("fs");
 const path = require("path")
+const randomPuppy = require("random-puppy");
 const ascii = require("ascii-table");
 
 //import files
@@ -66,9 +67,16 @@ cat.on('message', async message => {
         message.channel.send(":3");
     }
 
+    //reply for frown
+    if((message.content === ":(") || (message.content === ":'(")){
+        message.channel.send(":(");
+        message.react("😭");
+    }
+
     //reply for cute
     if((message.content === "cute") || (message.content === "cutie")){
         message.channel.send("haha thank you :3");
+        message.react("😊");
     }
 
     //prefix check

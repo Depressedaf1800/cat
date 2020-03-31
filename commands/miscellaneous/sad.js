@@ -15,6 +15,8 @@ module.exports = {
             .setImage(img)
             .setFooter(`https://reddit.com/r/${random}`);
 
-        message.channel.send(embed);
+            message.channel.send(embed).then(embedMessage => {
+                embedMessage.react("😭");
+            });
     }
 }
