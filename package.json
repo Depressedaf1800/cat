@@ -1,0 +1,24 @@
+{
+  "name": "cat",
+  "version": "1.0.0",
+  "description": "cat bot",
+  "main": "cat.js",
+  "scripts": {
+    "start": "worker: node cat.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Depressedaf1800/cat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Depressedaf1800/cat/issues"
+  },
+  "homepage": "https://github.com/Depressedaf1800/cat#readme",
+  "dependencies": {
+    "discord.js": "^12.1.1",
+    "dotenv": "^8.2.0"
+  }
+}
