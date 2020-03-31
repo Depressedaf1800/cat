@@ -26,13 +26,18 @@ cat.on('message', (message) => {
     if(message.author.bot) return;
 
     //reply for hi
-    if(message.content === "hi"){
+    if((message.content === "hi") || (message.content === "hey") || (message.content === "hello")){
         message.channel.send("meow :3");
     }
 
-    // reply for smile
+    //reply for smile
     if(message.content === ":)"){
         message.channel.send(":3");
+    }
+
+    //reply for cute
+    if((message.content === "cute") || (message.content === "cutie")){
+        message.channel.send("haha thank you :3");
     }
 
     //prefix check
