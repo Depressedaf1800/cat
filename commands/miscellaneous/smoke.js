@@ -1,6 +1,5 @@
 const fs = require("fs");
 const ytdl = require("ytdl-core");
-const YouTube = require("simple-youtube-api");
 require('dotenv').config();
 
 module.exports = {
@@ -9,9 +8,11 @@ module.exports = {
     description: "play music",
     usage: "<song>",
     run: async (cat, message, args) => {
-        const youtube = new YouTube(process.env.API)
-        const searchString = args.join(" ");
-        console.log(searchString);
+        const songs= [
+            "https://www.youtube.com/watch?v=clU8c2fpk2s",
+            "https://www.youtube.com/watch?v=X3MYWwS-Zrg"
+        ];
+        const select = songs[Math.floor(Math.random()*songs.length)];
         const voiceChannel = message.member.voice.channel
         if(!voiceChannel) return message.channel.send("what vc :3");
         const permissions = voiceChannel.permissionsFor(cat.user);
@@ -19,28 +20,12 @@ module.exports = {
             return message.channel.send("no perms :3");
         }
         try {
-            var video = await youtube.getVideo(searchString);
-        } catch (error) {
-            try {
-                var videos = await youtube.searchVideos(searchString, 1);
-                var video = await youtube.getVideoByID(videos[0].id);
-            } catch (err) {
-                return message.channel.send("could not find :3");
-            }
-        }
-        const song = {
-            id: video.id,
-            title: video.title,
-            url: `https://www.youtube.com/watch?v=${video.id}`
-        };
-        console.log(`song.url: ${song.url}`);
-        try {
             var connection = await voiceChannel.join();
         } catch (error) {
             console.error("cant connect");
             return message.channel.send("I cant :3");
         }
-        const dispatcher = connection.play(ytdl(`${song.url}`, {format: "mp3", filter: "audioonly"}))
+        const dispatcher = connection.play(ytdl(`${select}`, {format: "mp3", filter: "audioonly"}))
             .on('end', () => {
                 console.log("song ended");
                 voiceChannel.leave();
@@ -48,7 +33,6 @@ module.exports = {
             .on('error', error => {
                 console.error(error);
             });
-        message.channel.send(`now playing ${song.title}`);
         dispatcher.setVolumeLogarithmic(5/5);
     }
 }
