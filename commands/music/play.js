@@ -19,7 +19,7 @@ module.exports = {
             return message.channel.send("no perms :3");
         }
         try {
-            var video = await youtube.getVideo(url);
+            var video = await youtube.getVideo(searchString);
         } catch (error) {
             try {
                 var videos = await youtube.searchVideos(searchString, 1);
@@ -48,6 +48,7 @@ module.exports = {
             .on('error', error => {
                 console.error(error);
             });
-        dispatcher.setVolume(0.15);
+        message.channel.send(`now playing ${song.title}`);
+        dispatcher.setVolumeLogarithmic(5/5);
     }
 }
