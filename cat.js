@@ -2,6 +2,7 @@
 const discord = require("discord.js");
 const fs = require("fs");
 const path = require("path")
+const {stripIndents} = require("common-tags");
 const YouTube = require("simple-youtube-api");
 const randomPuppy = require("random-puppy");
 const ascii = require("ascii-table");
