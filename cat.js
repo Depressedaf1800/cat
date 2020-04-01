@@ -49,6 +49,7 @@ cat.on('message', async message => {
 
     //failsafe check for bot replying self
     if(message.author.bot) return;
+
     /*log messages
     if(message.guild) {
         console.log(`${message.author.username} said ${message.content} in ${message.channel.name}`);
@@ -82,6 +83,7 @@ cat.on('message', async message => {
 
     //prefix check
     const prefix = "!";
+    if(!message.content.startsWith(prefix)) return;
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
 
