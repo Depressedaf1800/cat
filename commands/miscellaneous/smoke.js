@@ -1,11 +1,10 @@
 const fs = require("fs");
 const ytdl = require("ytdl-core");
-require('dotenv').config();
 
 module.exports = {
-    name: "play",
-    category: "music",
-    description: "play music",
+    name: "smoke",
+    category: "miscellaneous",
+    description: "quick preselected music",
     usage: "<song>",
     run: async (cat, message, args) => {
         const songs= [
