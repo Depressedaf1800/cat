@@ -12,9 +12,10 @@ require('dotenv').config();
 //define bot
 const cat = new discord.Client();
 
-//define collections
+//define classes and etc
 cat.commands = new discord.Collection();
 cat.aliases = new discord.Collection();
+cat.categories = fs.readdirSync("./commands/");
 
 //when bot on
 cat.on('ready', async () => {
@@ -46,7 +47,6 @@ cat.on('message', async message => {
     //console log messages
     if(message.channel.type !== "dm") console.log(`${message.author.username} said ${message.content} in ${message.channel.name}`);
     else console.log(`${message.author.username} said ${message.content} in ${message.channel.type}`); 
-
     //failsafe check for bot replying self
     if(message.author.bot) return;
 
@@ -59,26 +59,35 @@ cat.on('message', async message => {
         console.log(`${message.author.username} said ${message.content} in dms`);
     }*/
 
-    //reply for hi
-    if((message.content === "hi") || (message.content === "hey") || (message.content === "hello")){
-        message.channel.send("meow :3");
-    }
-
-    //reply for smile
-    if(message.content === ":)"){
-        message.channel.send(":3");
-    }
-
-    //reply for frown
-    if((message.content === ":(") || (message.content === ":'(")){
-        message.channel.send(":(");
-        message.react("😭");
-    }
-
-    //reply for cute
-    if((message.content === "cute") || (message.content === "cutie")){
-        message.channel.send("haha thank you :3");
-        message.react("😊");
+    //switch case for chat
+    let chat = message.content.toLowerCase().split(" ");
+    switch(chat[0]){
+        //reply for cat
+        case "cat":
+            console.log(chat.slice(1, 4).join(" "));
+            if((chat.slice(1, 4).join(" ") === "how are you") || (chat.slice(1, 4).join(" ") === "how are you?")) {
+                message.channel.send("great nya :3");
+            } else { 
+                message.channel.send("mhm?"); 
+            }
+            break;
+        //reply for hi
+        case "hi": case "hello": case "hey":
+            message.channel.send("meow :3");
+            break;
+        //reply for smile
+        case ":)": case "🙂": case "😄":
+            message.channel.send(":3");
+            break;
+        //reply for frown
+        case ":(": case ":'(": case "😢":
+            message.react("😭");
+        break;
+        //reply for cute
+        case "cute": case "cutie": case "cutiepie": case "qtpie":
+            message.channel.send("haha thank you :3");
+            message.react("😊");
+            break;
     }
 
     //prefix check
