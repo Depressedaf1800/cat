@@ -7,7 +7,7 @@ module.exports = {
 
         //failsafe checks
         const voiceChannel = message.member.voice.channel
-        if(!voiceChannel) return message.channel.send("you''re not in the vc :3");
+        if(!voiceChannel) return message.channel.send("but you're not in the channel :3");
 
         //leave voice channel
         message.react("🐾");
