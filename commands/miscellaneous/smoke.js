@@ -14,7 +14,8 @@ module.exports = {
         const songs= [
             "https://www.youtube.com/watch?v=clU8c2fpk2s",
             "https://www.youtube.com/watch?v=X3MYWwS-Zrg",
-            "https://www.youtube.com/watch?v=qr5z8RsxlvY"
+            "https://www.youtube.com/watch?v=qr5z8RsxlvY",
+            "https://www.youtube.com/watch?v=4bEn27biSTE"
         ];
         const select = songs[Math.floor(Math.random()*songs.length)];
 
