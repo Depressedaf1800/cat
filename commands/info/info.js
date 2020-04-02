@@ -15,7 +15,16 @@ module.exports = {
             .setColor("BLUE");
 
         if(args[0]){
-            return;
+            let member = message.guild.members.cache.get(args[0]);
+            if(!member && message.mentions.members){
+                member = message.mentions.members.first();
+            }
+            if(!member) return;
+            message.channel.send(embed
+                .setThumbnail(member.user.displayAvatarURL())
+                .setDescription(stripIndents`**USER IDENTITY CARD**\nName: **\`${member.user.username}\`**`)
+                .addField(`${member.user.id}`, "IIIIIIIII IIIII I III IIII II II")
+                .setFooter(`bank-account#${member.user.discriminator}`, cat.user.displayAvatarURL()));
         } else {
             message.channel.send(embed
                 .setThumbnail(message.author.displayAvatarURL())
