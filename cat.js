@@ -36,7 +36,7 @@ cat.on('ready', async () => {
                 table.addRow(file, "❌");
                 continue;
             }
-            if (pull.aliases && Array.isArray(pull)) pull.aliases.forEach(alias => cat.aliases.set(alias, pull.name));
+            if (pull.aliases && Array.isArray(pull.aliases)) pull.aliases.forEach(alias => cat.aliases.set(alias, pull.name));
         }        
     })
     console.log(`${table}`);
