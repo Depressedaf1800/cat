@@ -59,7 +59,7 @@ cat.on('message', async message => {
     } else {
         console.log(`${message.author.username} said ${message.content} in dms`);
     }*/
-
+    
     //switch case for chat
     let chat = message.content.toLowerCase().split(" ");
     switch(chat[0]){
