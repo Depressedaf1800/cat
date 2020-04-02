@@ -5,7 +5,8 @@ const {stripIndents} = require("common-tags");
 // module export fucntion for help
 module.exports = {
     name: "help",
-    category: "help",
+    aliases: ["command"],
+    category: "info",
     description: "return information about all commands",
     usage: "[command name]",
     run: async (cat, message, args) => {
@@ -18,8 +19,8 @@ module.exports = {
             const cmd = cat.commands.get(args.join(" ").toLowerCase()) || cat.commands.get(cat.aliases.get(args.join(" ").toLowerCase()));
             //check for command objects and add information accordingly
             if(!cmd) message.channel.send("no result for command nya :3");
-            if (cmd.name) embed.addField(stripIndents`**Name**`, stripIndents`**${cmd.name}**`, true);
-            if (cmd.aliases) embed.setDescription(stripIndents`**Aliases**: ${cmd.aliases.map(a => `\`${a}\``).join(", ")}`);
+            if (cmd.name) embed.setDescription(stripIndents`**Name: \`${cmd.name.toUpperCase()}\`**`);
+            if (cmd.aliases) embed.addField(stripIndents`**Aliases**`, stripIndents`${cmd.aliases.map(a => `\`${a}\``).join(", ")}`, true);
             if (cmd.usage) {
                 embed.addField(stripIndents`**Usage**`, stripIndents`\`${cmd.usage}\``, true)
                     .setFooter(`syntax: <> = required, [] = optional :3`);
