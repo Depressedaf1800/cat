@@ -26,7 +26,7 @@ module.exports = {
                     .setFooter(`syntax: <> = required, [] = optional :3`);
             }
             if (cmd.description) embed.addField(stripIndents`**Description**`,
-                stripIndents`${cmd.description[0].toUpperCase() + cmd.description.slice(1)}`, false);
+                stripIndents`${cmd.description.slice(1)}`, false);
 
             //reply with embed
             message.channel.send(embed

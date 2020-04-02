@@ -7,7 +7,7 @@ module.exports = {
     name: "sad",
     aliases: ["sadmeme"],
     category: "miscellaneous",
-    description: "returns a sad meme",  
+    description: "returns a sad meme",
     run: async (cat, message, args) => {
 
         //define array and choices

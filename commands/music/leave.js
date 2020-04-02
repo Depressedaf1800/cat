@@ -1,8 +1,9 @@
 //module export function for leave
 module.exports = {
     name: "leave",
+    aliases: ["disconnect", "dc"],
     category: "music",
-    description: "stop music",
+    description: "disconnect from voice channel",
     run: async (cat, message, args) => {
 
         //failsafe checks

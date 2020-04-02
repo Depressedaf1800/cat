@@ -5,9 +5,9 @@ const ytdl = require("ytdl-core");
 //module export function for smoke
 module.exports = {
     name: "smoke",
+    aliases: ["quickplay"],
     category: "miscellaneous",
     description: "quick preselected music",
-    usage: "<song>",
     run: async (cat, message, args) => {
 
         //define array and choice
