@@ -14,23 +14,24 @@ module.exports = {
         const embed = new MessageEmbed()
             .setColor("BLUE");
 
-        if(args[0]){
-            let member = message.guild.members.cache.get(args[0]);
-            if(!member && message.mentions.members){
-                member = message.mentions.members.first();
-            }
-            if(!member) return;
-            message.channel.send(embed
-                .setThumbnail(member.user.displayAvatarURL())
-                .setDescription(stripIndents`**USER IDENTITY CARD**\nName: **\`${member.user.username}\`**`)
-                .addField(`${member.user.id}`, "IIIIIIIII IIIII I III IIII II II")
-                .setFooter(`bank-account#${member.user.discriminator}`, cat.user.displayAvatarURL()));
-        } else {
-            message.channel.send(embed
-                .setThumbnail(message.author.displayAvatarURL())
-                .setDescription(stripIndents`**USER IDENTITY CARD**\nName: **\`${message.author.username}\`**`)
-                .addField(`${message.author.id}`, "IIIIIIIII IIIII I III IIII II II")
-                .setFooter(`bank-account#${message.author.discriminator}`, cat.user.displayAvatarURL()));
+        let member = message.guild.members.cache.get(args[0]);
+        if(!member && message.mentions.members){
+            member = message.mentions.members.first();
+        } 
+        if(!member && args.join(" ")){
+            member = message.guild.members.cache.find(member => {
+                return member.displayName.toLowerCase().includes(args.join(" ")) || member.user.tag.toLowerCase().includes(args.join(" "))  
+            });
         }
+        if(!member){
+            member = message.guild.members.cache.find(member => {
+                return member.id.includes(message.author.id)
+            });
+        }
+        message.channel.send(embed
+            .setThumbnail(member.user.displayAvatarURL())
+            .setDescription(stripIndents`**USER IDENTITY CARD**\nName: **\`${member.user.username}\`**`)
+            .addField(`${member.user.id}`, "IIIIIIIII IIIII I III IIII II II")
+            .setFooter(`bank-account#${member.user.discriminator}`, cat.user.displayAvatarURL()));
     }
 }
