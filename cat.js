@@ -1,5 +1,6 @@
 //import libraries
 const discord = require("discord.js");
+const mysql = require("mysql");
 const fs = require("fs");
 const path = require("path")
 const {stripIndents} = require("common-tags");
