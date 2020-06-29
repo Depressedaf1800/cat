@@ -86,7 +86,7 @@ cat.on('message', async message => {
             message.react("😭");
         break;
         //reply for cute
-        case "cute": case "cutie": case "cutiepie": case "qtpie":
+        case "cute": case "cutie": case "cutiepie": case "qtpie": case "qt":
             message.channel.send("haha thank you :3");
             message.react("😊");
             break;
