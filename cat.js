@@ -65,7 +65,7 @@ cat.on('message', async message => {
     let chat = message.content.toLowerCase().split(" ");
     switch(chat[0]){
         //reply for cat
-        case "cat":
+        case "cat": case "kitty":
             console.log(chat.slice(1, 4).join(" "));
             if((chat.slice(1, 4).join(" ") === "how are you") || (chat.slice(1, 4).join(" ") === "how are you?")) {
                 message.channel.send("great nya :3");
@@ -74,7 +74,7 @@ cat.on('message', async message => {
             }
             break;
         //reply for hi
-        case "hi": case "hello": case "hey":
+        case "hi": case "hello": case "hey": case "meow": case "aw":
             message.channel.send("meow :3");
             break;
         //reply for smile
