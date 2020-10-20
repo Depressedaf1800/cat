@@ -92,7 +92,8 @@ cat.on('message', async message => {
             break;
         //reply for morning greetings
         case "goodmorning": case "goodmorning everyone": case "good morning": case "good morning everyone": case "morning":
-        case "morning everyone": case "goodmorning cat": case "good morning cat": case "morning cat":
+        case "morning everyone": case "goodmorning cat": case "good morning cat": case "morning cat": case "gdmorning":
+        case "gdmorning everyone": case "gdmorning cat":
             message.channel.send("goodmorning :3");
             message.react("😪");
             break;
