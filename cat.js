@@ -66,7 +66,7 @@ cat.on('message', async message => {
     switch(chat[0]){
         //reply to member name
         case "maril": case "marilyn":
-            message.channel.send(":broken_heart: Cruelty is love");
+            message.channel.send(":broken_heart: Cruelty of love");
             break;
         //reply for cat
         case "cat": case "kitty": case "catto":
