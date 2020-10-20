@@ -74,7 +74,7 @@ cat.on('message', async message => {
             }
             break;
         //reply for hi
-        case "hi": case "hello": case "hey": case "meow": case "aw":
+        case "hi": case "hello": case "hey": case "meow": case "aw": case "aww": case "awww":
             message.channel.send("meow :3");
             break;
         //reply for smile
@@ -84,11 +84,17 @@ cat.on('message', async message => {
         //reply for frown
         case ":(": case ":'(": case "😢":
             message.react("😭");
-        break;
+            break;
         //reply for cute
         case "cute": case "cutie": case "cutiepie": case "qtpie": case "qt":
             message.channel.send("haha thank you :3");
             message.react("😊");
+            break;
+        //reply for morning greetings
+        case "goodmorning": case "goodmorning everyone": case "good morning": case "good morning everyone": case "morning":
+        case "morning everyone": case "goodmorning cat": case "good morning cat": case "morning cat":
+            message.channel.send("goodmorning :3");
+            message.react("😪");
             break;
     }
 
