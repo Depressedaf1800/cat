@@ -65,7 +65,7 @@ cat.on('message', async message => {
     let chat = message.content.toLowerCase().split(" ");
     switch(chat[0]){
         //reply for cat
-        case "cat": case "kitty":
+        case "cat": case "kitty": case "catto":
             console.log(chat.slice(1, 4).join(" "));
             if((chat.slice(1, 4).join(" ") === "how are you") || (chat.slice(1, 4).join(" ") === "how are you?")) {
                 message.channel.send("great nya :3");
@@ -91,14 +91,19 @@ cat.on('message', async message => {
             message.react("😊");
             break;
         //reply for morning greetings
-        case "goodmorning": case chat.slice(0, 1).join(" ") === "goodmorning everyone":
-        case chat.slice(0, 2).join(" ") === "good morning": case chat.slice(0, 3).join(" ") === "good morning everyone":
-        case "morning": case chat.slice(0, 2).join(" ") === "morning everyone":
-        case chat.slice(0, 2).join(" ") === "goodmorning cat": case chat.slice(0, 3).join(" ") === "good morning cat":
-        case chat.slice(0, 2).join(" ") === "morning cat": case "gdmorning": case chat.slice(0, 2).join(" ") === "gdmorning everyone":
-        case chat.slice(0, 2).join(" ") === "gdmorning cat":
+        case "goodmorning": case "morning": case "morn": case "gdmorning":
             message.channel.send("goodmorning :3");
             message.react("😪");
+            break;
+        case "good":
+            if((chat.slice(1, 3).join(" ") === "morning everyone") || (chat.slice(1, 2).join(" ") === "morning") ||
+                (chat.slice(1, 3).join(" ") === "morning cat") || (chat.slice(1, 3).join(" ") === "morning catto") ||
+                (chat.slice(1, 3).join(" ") === "morning kitty")) {
+                message.channel.send("goodmorning :3");
+                message.react("😪"); 
+            } else {
+                return;
+            }
             break;
     }
 
