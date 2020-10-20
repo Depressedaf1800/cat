@@ -91,9 +91,12 @@ cat.on('message', async message => {
             message.react("😊");
             break;
         //reply for morning greetings
-        case "goodmorning": case "goodmorning everyone": case "good morning": case "good morning everyone": case "morning":
-        case "morning everyone": case "goodmorning cat": case "good morning cat": case "morning cat": case "gdmorning":
-        case "gdmorning everyone": case "gdmorning cat":
+        case "goodmorning": case chat.slice(1, 2).join(" ") === "goodmorning everyone":
+        case chat.slice(1, 2).join(" ") === "good morning": case chat.slice(1, 3).join(" ") === "good morning everyone":
+        case "morning": case chat.slice(1, 2).join(" ") === "morning everyone":
+        case chat.slice(1, 2).join(" ") === "goodmorning cat": case chat.slice(1, 3).join(" ") === "good morning cat":
+        case chat.slice(1, 2).join(" ") === "morning cat": case "gdmorning": case chat.slice(1, 2).join(" ") === "gdmorning everyone":
+        case chat.slice(1, 2).join(" ") === "gdmorning cat":
             message.channel.send("goodmorning :3");
             message.react("😪");
             break;
