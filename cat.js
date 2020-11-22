@@ -64,10 +64,6 @@ cat.on('message', async message => {
     //switch case for chat
     let chat = message.content.toLowerCase().split(" ");
     switch(chat[0]){
-        //reply to member name
-        case "maril": case "marill": case "marilyn":
-            message.channel.send(":broken_heart: Cruelty of love");
-            break;
         //reply for cat
         case "cat": case "kitty": case "catto":
             console.log(chat.slice(1, 4).join(" "));
@@ -90,11 +86,11 @@ cat.on('message', async message => {
             message.react("😭");
             break;
         //reply for cute
-        case "cute": case "cutie": case "cutiepie": case "qtpie": case "qt":
+        case "cute": case "cutie": case "cutiepie": case "qtpie": case "qt": case "kawaii":
             message.channel.send("haha thank you :3");
             message.react("😊");
             break;
-        //reply for morning greetings
+        /*reply for morning greetings
         case "goodmorning": case "morning": case "morn": case "gdmorning":
             message.channel.send("goodmorning :3");
             message.react("😪");
@@ -109,6 +105,7 @@ cat.on('message', async message => {
                 return;
             }
             break;
+            */
     }
 
     //prefix check
