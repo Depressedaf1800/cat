@@ -64,6 +64,10 @@ cat.on('message', async message => {
     //switch case for chat
     let chat = message.content.toLowerCase().split(" ");
     switch(chat[0]){
+        //reply for ray
+        case "wheely":
+            message.channel.send("wanker :3");
+            break;
         //reply for cat
         case "cat": case "kitty": case "catto":
             console.log(chat.slice(1, 4).join(" "));
