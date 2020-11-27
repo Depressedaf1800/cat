@@ -64,6 +64,10 @@ cat.on('message', async message => {
     //switch case for chat
     let chat = message.content.toLowerCase().split(" ");
     switch(chat[0]){
+        //replt for bhaa
+        case "bhaarath": case "bhaa": case "bha":
+            message.channel.send("rapture :3");
+            break;
         //reply for ray
         case "wheely":
             message.channel.send("wanker :3");
