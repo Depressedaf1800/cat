@@ -68,6 +68,9 @@ cat.on('message', async message => {
         case "bhaarath": case "bhaa": case "bha":
             message.channel.send("rapture :3");
             break;
+        case "depressed":
+            message.channel.send("AF :(");
+            break;
         //reply for ray
         case "wheely":
             message.channel.send("wanker :3");
